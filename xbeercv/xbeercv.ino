@@ -30,10 +30,14 @@ XBeeResponse response = XBeeResponse();
 // create reusable response objects for responses we expect to handle 
 Rx16Response rx16 = Rx16Response();
 Rx64Response rx64 = Rx64Response();
+XBeeAddress64 adr64 = XBeeAddress64();
+//ZBRxResponse adr16 = ZBRxResponse();
 
 int statusLed = 11;
 int errorLed = 12;
 int dataLed = 10;
+
+uint16_t add=1;
 
 uint8_t option = 0;
 uint8_t data = 0;
@@ -75,8 +79,11 @@ void loop() {
     
     if (xbee.getResponse().isAvailable()) {
       // got something
-      
-      
+      adr64 = rx64.getRemoteAddress64();
+      add = rx16.getRemoteAddress16();
+      Serial.print("@"); 
+      Serial.println(add);
+      Serial.println(adr64.getLsb());
       if (xbee.getResponse().getApiId() == RX_16_RESPONSE || xbee.getResponse().getApiId() == RX_64_RESPONSE) {
         // got a rx packet
         
