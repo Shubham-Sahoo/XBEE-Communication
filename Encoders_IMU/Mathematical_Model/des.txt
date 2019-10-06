@@ -1,1 +1,37 @@
-This will contain the mathematical model
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{AGV Encoders IMU}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Mathematical Model}
+
+
+r $\rightarrow$ Radius of Wheels\newline
+d $\rightarrow$Distance Between Wheels\newline
+R $\rightarrow$ Radius of turn\newline
+$\omega$ $\rightarrow$Angular Velocity of car\newline
+$\omega_L$ $\rightarrow$Angular Velocity of left Wheel\newline
+$\omega_R$ $\rightarrow$Angular Velocity of Right Wheel\newline
+
+Now,\newline
+    $V_R = \omega (R+d)$ \newline
+    $V_L = \omega R$ \newline
+    $\omega_R = \omega(R+d)/r$  \newline
+     $\omega_L = \omega(R)/r$ \newline
+    $\omega_R = \omega_L + \omega(d/r)$ $\rightarrow$ Equation 1 \newline 
+    \newline
+    \newline
+    From IMU Readings we $g_L$ and $g_R$ \newline
+    
+$g_L = \sqrt{\omega_L^2 + \omega^2}$ $\rightarrow$ Equation 2 \newline
+$g_R = \sqrt{\omega_R^2 + \omega^2}$ $\rightarrow$ Equation 3  \newline
+
+Now by using equation 1,equation 2 and equation 3, We can find out $\omega_R$, $\omega_L$,$\omega$
+\end{document}
+ 
